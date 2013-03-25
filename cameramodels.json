@@ -1,0 +1,17 @@
+[
+ { "category": "canon", "type": "EOS 5D Mark 11" },
+ { "category": "canon", "type": "EOS 7D" },
+ { "category": "canon", "type": "EOS REBEL T2i" },
+ 
+ { "category": "nikon", "type": "D7000" },
+ { "category": "nikon", "type": "D90" },
+ { "category": "nikon", "type": "D3100" },
+ 
+ { "category": "sony", "type": "DSC-RX100" },
+ { "category": "sony", "type": "NEX-5N" },
+ { "category": "sony", "type": "SLT-A77V" }
+<<<<<<< HEAD
+]
+=======
+]
+>>>>>>> canvas
