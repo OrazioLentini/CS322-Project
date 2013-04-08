@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html class="ui-mobile-rendering">
+<head>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/jquery.mobile-1.0.1.min.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+
+    <script type="text/template" id="home">
+
+        <div data-role="header">
+            <h1>ORAZ</h1>
+            <a href="#about" data-icon="info" data-iconpos="notext" data-rel="dialog" class="back ui-btn-right">About</a>
+        </div><!--Header Home-->
+
+        <div data-role="content">
+            <h3>Application Template for using Backbone.js and jQuery Mobile.</h3>
+            <p>Backbone.js is used for code organization (Models, Views) and "routing".</p>
+            <p>jQuery Mobile is used for its mobile styles and widgets. The routing and navigation capabilities of jQuery Mobile are disbled to let Backbone.js handle these requirements.</p>
+            <p>This is the Home page. It was created dynamically using an underscore.js template.</p>
+            <p>Navigate to:</p>
+            
+            <div data-role="controlgroup">
+                <form method="post" action="#" id='queryForm' name="queryForm" onsubmit="return false">
+                    <input id="searchbox" type="search" name="searchbox" placeholder="Brand Model"/>
+                </form>
+                <ul data-role="listview"  data-inset="true">
+                    <li><a href="#canon">Canon</a></li>
+                    <li><a href="#nikon">Nikon</a></li>
+                    <li><a href="#sony">Sony</a></li>
+                </ul>
+            </div><!--Control Group-->
+        </div><!--home-->
+
+    </script><!--Home-->
+
+    <script type="text/template" id="canon">
+
+        <div data-role="header" data-position="fixed">
+            <a href="#" data-icon="back" class="back ui-btn-left" data-iconpos="notext">Back</a>
+            <h1>Canon</h1>
+            <a href="#about" data-icon="info" data-iconpos="notext" data-rel="dialog">About</a>
+        </div>
+
+        <div data-role="content">
+            <p>This is Page 1. It was created dynamically using an underscore.js template.</p>
+        </div>
+        
+        <div data-role="footer" data-position="fixed">
+	    <div data-role="navbar">
+		<ul>
+		    <li><a href="#" data-role="button" data-icon="home">Home</a></li>
+		    <li><a href="#canon" data-role="button" data-icon="">Canon</a></li>
+		    <li><a href="#nikon" data-role="button" data-icon="home">Nikon</a></li>
+		    <li><a href="#sony" data-role="button" data-icon="home">Sony</a></li>
+		    
+		</ul>
+	    </div><!--Navbar-->
+	</div><!--Footer-->
+
+    </script><!--Canon-->
+
+    <script type="text/template" id="nikon">
+
+        <div data-role="header" data-position="fixed">
+            <a href="#" data-icon="back" class="back ui-btn-left" data-iconpos="notext">Back</a>
+            <h1>Nikon</h1>
+            <a href="#about" data-icon="info" data-iconpos="notext" data-rel="dialog">About</a>
+        </div>
+
+        <div data-role="content">
+            <p>This is Page 2. It was created dynamically using an underscore.js template.</p>
+        </div>
+
+         <div data-role="footer" data-position="fixed">
+	    <div data-role="navbar">
+		<ul>
+		    <li><a href="#" data-role="button" data-icon="home">Home</a></li>
+		    <li><a href="#canon" data-role="button" data-icon="">Canon</a></li>
+		    <li><a href="#nikon" data-role="button" data-icon="">Nikon</a></li>
+		    <li><a href="#sony" data-role="button" data-icon="">Sony</a></li>
+		</ul>
+	    </div><!--Navbar-->
+	</div><!--Footer-->
+	
+    </script><!--Nikon-->
+    
+    <script type="text/template" id="sony">
+
+        <div data-role="header" data-position="fixed">
+            <a href="#" data-icon="back" class="back ui-btn-left" data-iconpos="notext">Back</a>
+            <h1>Sony</h1>
+            <a href="#about" data-icon="info" data-iconpos="notext" data-rel="dialog">About</a>
+        </div>
+
+        <div data-role="content">
+            <p>This is Page 2. It was created dynamically using an underscore.js template.</p>
+        </div>
+
+         <div data-role="footer" data-position="fixed">
+	    <div data-role="navbar">
+		<ul>
+		    <li><a href="#" data-role="button" data-icon="home">Home</a></li>
+		    <li><a href="#canon" data-role="button" data-icon="">Canon</a></li>
+		    <li><a href="#nikon" data-role="button" data-icon="">Nikon</a></li>
+		    <li><a href="#sony" data-role="button" data-icon="">Sony</a></li>
+		</ul>
+	    </div><!--Navbar-->
+	</div><!--Footer-->
+	
+    </script><!--Sony-->
+    
+    <script type="text/template" id="about">
+        
+        <div data-role="header">
+            <a href="#" data-icon="delete" class="back ui-btn-left" data-iconpos="notext">Close</a>
+            <h1>About ORAZ</h1>
+        </div>/
+        
+        <div data-role="content">
+            <p>
+                Created By Orazio Lentini and Krunal Intwala.
+            </p>                
+        </div>
+        
+    </script><!--Info-->
+
+    <!-- The Scripts -->
+    <script src="lib/jquery-1.7.1.min.js"></script>
+    <script src="js/jqm-config.js"></script>
+    <script src="lib/jquery.mobile-1.0.1.min.js"></script>
+    <script src="lib/underscore-min.js"></script>
+    <script src="lib/backbone-min.js"></script>
+    <script src="js/main.js"></script>
+</head>
+
+<body></body>
+
+</html>
