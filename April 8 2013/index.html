@@ -10,7 +10,7 @@
 
         <div data-role="header">
             <h1>ORAZ</h1>
-            <a href="#about" data-icon="info" data-iconpos="notext" data-rel="dialog" class="back ui-btn-right">About</a>
+            <a href="#about" class="ui-btn-right" data-icon="info" data-iconpos="notext" data-rel="dialog">About</a>
         </div><!--Header Home-->
 
         <div data-role="content">
@@ -25,9 +25,9 @@
                     <input id="searchbox" type="search" name="searchbox" placeholder="Brand Model"/>
                 </form>
                 <ul data-role="listview"  data-inset="true">
-                    <li><a href="#canon">Canon</a></li>
-                    <li><a href="#nikon">Nikon</a></li>
-                    <li><a href="#sony">Sony</a></li>
+                    <li><a href="#canon" id="canoni" data-role="button" data-icon="custom">Canon</a></li>
+                    <li><a href="#nikon" id="nikoni" data-role="button" data-icon="custom">Nikon</a></li>
+                    <li><a href="#sony" id="sonyi" data-role="button" data-icon="custom">Sony</a></li>
                 </ul>
             </div><!--Control Group-->
         </div><!--home-->
@@ -41,18 +41,18 @@
             <h1>Canon</h1>
             <a href="#about" data-icon="info" data-iconpos="notext" data-rel="dialog">About</a>
         </div>
-
+        
         <div data-role="content">
-            <p>This is Page 1. It was created dynamically using an underscore.js template.</p>
+            <img src="images/canon.jpg" alt="Canon"/>
         </div>
         
         <div data-role="footer" data-position="fixed">
 	    <div data-role="navbar">
 		<ul>
-		    <li><a href="#" data-role="button" data-icon="home">Home</a></li>
+		    <li><a href="#" data-role="button" data-icon="">Home</a></li>
 		    <li><a href="#canon" data-role="button" data-icon="">Canon</a></li>
-		    <li><a href="#nikon" data-role="button" data-icon="home">Nikon</a></li>
-		    <li><a href="#sony" data-role="button" data-icon="home">Sony</a></li>
+		    <li><a href="#nikon" data-role="button" data-icon="">Nikon</a></li>
+		    <li><a href="#sony" data-role="button" data-icon="">Sony</a></li>
 		    
 		</ul>
 	    </div><!--Navbar-->
@@ -69,13 +69,13 @@
         </div>
 
         <div data-role="content">
-            <p>This is Page 2. It was created dynamically using an underscore.js template.</p>
+            <img src="images/nikon.jpg" alt="Nikon" />
         </div>
 
          <div data-role="footer" data-position="fixed">
 	    <div data-role="navbar">
 		<ul>
-		    <li><a href="#" data-role="button" data-icon="home">Home</a></li>
+		    <li><a href="#" data-role="button" data-icon="">Home</a></li>
 		    <li><a href="#canon" data-role="button" data-icon="">Canon</a></li>
 		    <li><a href="#nikon" data-role="button" data-icon="">Nikon</a></li>
 		    <li><a href="#sony" data-role="button" data-icon="">Sony</a></li>
@@ -94,13 +94,13 @@
         </div>
 
         <div data-role="content">
-            <p>This is Page 2. It was created dynamically using an underscore.js template.</p>
+            <img src="images/sony.jpg" alt="Sony" />
         </div>
 
          <div data-role="footer" data-position="fixed">
 	    <div data-role="navbar">
 		<ul>
-		    <li><a href="#" data-role="button" data-icon="home">Home</a></li>
+		    <li><a href="#" data-role="button" data-icon="">Home</a></li>
 		    <li><a href="#canon" data-role="button" data-icon="">Canon</a></li>
 		    <li><a href="#nikon" data-role="button" data-icon="">Nikon</a></li>
 		    <li><a href="#sony" data-role="button" data-icon="">Sony</a></li>
@@ -113,9 +113,9 @@
     <script type="text/template" id="about">
         
         <div data-role="header">
-            <a href="#" data-icon="delete" class="back ui-btn-left" data-iconpos="notext">Close</a>
+            <a href="#" data-icon="delete" class="back ui-btn-right" data-iconpos="notext">Close</a>
             <h1>About ORAZ</h1>
-        </div>/
+        </div>
         
         <div data-role="content">
             <p>
