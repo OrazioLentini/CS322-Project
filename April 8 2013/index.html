@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html class="ui-mobile-rendering">
+<html class="ui-mobile-rendering" manifest="offline.manifest">
 <head>
     <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/jquery.mobile-1.0.1.min.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-
+    
     <script type="text/template" id="home">
 
         <div data-role="header">
@@ -14,11 +14,8 @@
         </div><!--Header Home-->
 
         <div data-role="content">
-            <h3>Application Template for using Backbone.js and jQuery Mobile.</h3>
-            <p>Backbone.js is used for code organization (Models, Views) and "routing".</p>
-            <p>jQuery Mobile is used for its mobile styles and widgets. The routing and navigation capabilities of jQuery Mobile are disbled to let Backbone.js handle these requirements.</p>
-            <p>This is the Home page. It was created dynamically using an underscore.js template.</p>
-            <p>Navigate to:</p>
+            <h2>Camera Models</h2>
+	    <h3>Choose the camera model that you want to see pictures take with the camera.</h3>
             
             <div data-role="controlgroup">
                 <form method="post" action="#" id='queryForm' name="queryForm" onsubmit="return false">
@@ -124,7 +121,8 @@
         </div>
         
     </script><!--Info-->
-
+    
+   
     <!-- The Scripts -->
     <script src="lib/jquery-1.7.1.min.js"></script>
     <script src="js/jqm-config.js"></script>
