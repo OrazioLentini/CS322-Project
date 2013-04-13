@@ -1,3 +1,27 @@
+/* #h {
+    background: url('../images/back.jpg');
+  
+} */
+h2 {
+    text-align: center;
+    font-size: 40px;
+}
+
+p {
+    text-align: center;
+    font-size: 10px;
+}
+
+#image {
+	width: 100%;
+	height: 200px;
+	float: left;
+	border: dashed 3px blue;
+}
+.stretch {
+	width: 100%;
+	height: 200px;
+}
 .ui-controlgroup {
     width: 100%;
     margin: 0 auto;
@@ -13,11 +37,16 @@ img {
     margin-right: auto;
 }
 
+#models {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 20px;
+    max-width: 75%;
+}
+
 .nav-glyphish-example .ui-btn .ui-btn-inner { padding-top: 40px !important; }
 .nav-glyphish-example .ui-btn .ui-icon { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important;
 -webkit-box-shadow: none!important; -webkit-border-radius: none !important; border-radius: none !important; }
 #canoni .ui-icon { background:  url(../images/canonicon.jpg) 50% 50% no-repeat; background-size: 18px 18px; }
 #nikoni .ui-icon { background:  url(../images/nikonicon.jpg) 50% 50% no-repeat; background-size: 18px 18px;  }
 #sonyi .ui-icon { background:  url(../images/sonyicon.png) 50% 50% no-repeat;  background-size: 18px 18px; }
-
-#canona .ui-icon { background:  url(../images/canonicon.jpg) 50% 50% no-repeat; background-size: 18px 18px; }

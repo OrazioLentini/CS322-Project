@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html class="ui-mobile-rendering" manifest="offline.manifest">
+<html class="ui-mobile-rendering">
 <head>
     <title></title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/jquery.mobile-1.0.1.min.css"/>
     <link rel="stylesheet" href="css/main.css"/>
@@ -12,10 +13,11 @@
             <h1>ORAZ</h1>
             <a href="#about" class="ui-btn-right" data-icon="info" data-iconpos="notext" data-rel="dialog">About</a>
         </div><!--Header Home-->
-
-        <div data-role="content">
-            <h2>Camera Models</h2>
-	    <h3>Choose the camera model that you want to see pictures take with the camera.</h3>
+        
+        <div data-role="content" id="h">
+            <div id="image"><img src="images/oraz.png" class="stretch" alt="Oraz"/></div>
+	    <h2>Choose Model</h2>
+            <p>Choose the camera model that you want to see pictures take with the camera.</p>
             
             <div data-role="controlgroup">
                 <form method="post" action="#" id='queryForm' name="queryForm" onsubmit="return false">
@@ -25,6 +27,7 @@
                     <li><a href="#canon" id="canoni" data-role="button" data-icon="custom">Canon</a></li>
                     <li><a href="#nikon" id="nikoni" data-role="button" data-icon="custom">Nikon</a></li>
                     <li><a href="#sony" id="sonyi" data-role="button" data-icon="custom">Sony</a></li>
+                    <li><a href="#favs" data-role="button" data-icon="star">Favorites</a></li>
                 </ul>
             </div><!--Control Group-->
         </div><!--home-->
@@ -39,10 +42,18 @@
             <a href="#about" data-icon="info" data-iconpos="notext" data-rel="dialog">About</a>
         </div>
         
-        <div data-role="content">
-            <img src="images/canon.jpg" alt="Canon"/>
-        </div>
+        <div data-role="content"><img src="images/canon.jpg" alt="Canon"/></div>
         
+        <div data-role="content" id="models">
+            <ul data-role="listview">
+                <li><a href="#results">EOS 5D Mark 11</a></li>
+                <li><a href="#results">EOS 7D</a></li>
+                <li><a href="#results">EOS REBEL T2i</a></li>
+                <li><a href="#results">EOS REBEL T3i</a></li>
+                <li><a href="#results">EOS 60D</a></li>
+            </ul>
+        </div>
+    
         <div data-role="footer" data-position="fixed">
 	    <div data-role="navbar">
 		<ul>
@@ -50,7 +61,7 @@
 		    <li><a href="#canon" data-role="button" data-icon="">Canon</a></li>
 		    <li><a href="#nikon" data-role="button" data-icon="">Nikon</a></li>
 		    <li><a href="#sony" data-role="button" data-icon="">Sony</a></li>
-		    
+                    <li><a href="#favs" data-role="button" data-icon="">Favorites</a></li>
 		</ul>
 	    </div><!--Navbar-->
 	</div><!--Footer-->
@@ -65,8 +76,16 @@
             <a href="#about" data-icon="info" data-iconpos="notext" data-rel="dialog">About</a>
         </div>
 
-        <div data-role="content">
-            <img src="images/nikon.jpg" alt="Nikon" />
+        <div data-role="content"><img src="images/nikon.jpg" alt="Nikon" /></div>
+        
+        <div data-role="content" id="models">
+            <ul data-role="listview">
+                <li><a href="#results">D7000</a></li>
+                <li><a href="#results">D90</a></li>
+                <li><a href="#results">D3100</a></li>
+                <li><a href="#results">D5100</a></li>
+                <li><a href="#results">D700</a></li>
+            </ul>
         </div>
 
          <div data-role="footer" data-position="fixed">
@@ -76,6 +95,7 @@
 		    <li><a href="#canon" data-role="button" data-icon="">Canon</a></li>
 		    <li><a href="#nikon" data-role="button" data-icon="">Nikon</a></li>
 		    <li><a href="#sony" data-role="button" data-icon="">Sony</a></li>
+                    <li><a href="#favs" data-role="button" data-icon="">Favorites</a></li>
 		</ul>
 	    </div><!--Navbar-->
 	</div><!--Footer-->
@@ -90,8 +110,16 @@
             <a href="#about" data-icon="info" data-iconpos="notext" data-rel="dialog">About</a>
         </div>
 
-        <div data-role="content">
-            <img src="images/sony.jpg" alt="Sony" />
+        <div data-role="content"><img src="images/sony.jpg" alt="Sony" /></div>
+        
+        <div data-role="content" id="models">
+            <ul data-role="listview">
+                <li><a href="#results">DSC-RX100</a></li>
+                <li><a href="#results">NEX-5N</a></li>
+                <li><a href="#results">SLT-A77V</a></li>
+                <li><a href="#results">NEX-5</a></li>
+                <li><a href="#results">Alpha NEX-7</a></li>
+            </ul>
         </div>
 
          <div data-role="footer" data-position="fixed">
@@ -101,11 +129,34 @@
 		    <li><a href="#canon" data-role="button" data-icon="">Canon</a></li>
 		    <li><a href="#nikon" data-role="button" data-icon="">Nikon</a></li>
 		    <li><a href="#sony" data-role="button" data-icon="">Sony</a></li>
-		</ul>
+                    <li><a href="#favs" data-role="button" data-icon="">Favorites</a></li>
+                </ul>
 	    </div><!--Navbar-->
 	</div><!--Footer-->
 	
-    </script><!--Sony-->
+    </script><!--sony-->
+    
+    <script type="text/template" id="favs">
+
+        <div data-role="header" data-position="fixed">
+            <a href="#" data-icon="back" class="back ui-btn-left" data-iconpos="notext">Back</a>
+            <h1>Favorites</h1>
+            <a href="#about" data-icon="info" data-iconpos="notext" data-rel="dialog">About</a>
+        </div>
+
+         <div data-role="footer" data-position="fixed">
+	    <div data-role="navbar">
+		<ul>
+		    <li><a href="#" data-role="button" data-icon="">Home</a></li>
+		    <li><a href="#canon" data-role="button" data-icon="">Canon</a></li>
+		    <li><a href="#nikon" data-role="button" data-icon="">Nikon</a></li>
+		    <li><a href="#sony" data-role="button" data-icon="">Sony</a></li>
+                    <li><a href="#favs" data-role="button" data-icon="">Favorites</a></li>
+                </ul>
+	    </div><!--Navbar-->
+	</div><!--Footer-->
+	
+    </script><!--sony-->
     
     <script type="text/template" id="about">
         
@@ -122,7 +173,15 @@
         
     </script><!--Info-->
     
-   
+    <script type="text/template" id="results">
+        
+        <div data-role="header">
+            <a href="#" data-icon="delete" class="back ui-btn-right" data-iconpos="notext">Close</a>
+            <h1>Results</h1>
+        </div>
+        
+    </script><!--Results-->
+    
     <!-- The Scripts -->
     <script src="lib/jquery-1.7.1.min.js"></script>
     <script src="js/jqm-config.js"></script>

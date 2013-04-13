@@ -1,3 +1,5 @@
+//     VIEW
+//=========
 window.HomeView = Backbone.View.extend({
 
     template:_.template($('#home').html()),
@@ -9,7 +11,7 @@ window.HomeView = Backbone.View.extend({
 });
 
 window.Page1View = Backbone.View.extend({
-
+    
     template:_.template($('#canon').html()),
 
     render:function (eventName) {
@@ -48,6 +50,28 @@ window.Page4View = Backbone.View.extend({
     }
 });
 
+window.Page5View = Backbone.View.extend({
+
+    template:_.template($('#favs').html()),
+
+    render:function (eventName) {
+        $(this.el).html(this.template());
+        return this;
+    }
+});
+
+window.Page6View = Backbone.View.extend({
+    
+    template:_.template($('#results').html()),
+
+    render:function (eventName) {
+        $(this.el).html(this.template());
+        return this;
+    }
+});
+
+//   ROUTER
+//=========
 var AppRouter = Backbone.Router.extend({
 
     routes:{
@@ -55,8 +79,9 @@ var AppRouter = Backbone.Router.extend({
         "canon":"canon",
         "nikon":"nikon",
         "sony":"sony",
-        "about":"about"
-
+        "about":"about",
+        "favs":"favs",
+        "results":"results"
     },
 
     initialize:function () {
@@ -92,7 +117,16 @@ var AppRouter = Backbone.Router.extend({
         console.log('#about');
         this.changePage(new Page4View());
     },
-
+    
+    favs:function () {
+        console.log('#favs');
+        this.changePage(new Page5View());
+    },
+    
+    results:function () {
+        console.log('#results');
+        this.changePage(new Page6View());
+    },
 
     changePage:function (page) {
         $(page.el).attr('data-role', 'page');
