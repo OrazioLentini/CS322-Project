@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <h1 class="chromeframe">You are using an <strong>outdated</strong> browser. Please <h1 href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+        <script type="text/javascript">
+        $(function(){
+        jQuery('#a-link').remove();
+        jQuery('<img />').attr('id', 'loader').attr('src', 'http://cdn.kylerush.org/kr/images/flickr-ajax-loader.gif').appendTo('#image-container');
+        //assign your api key equal to a variable
+        var apiKey = '4ef2fe2affcdd6e13218f5ddd0e2500d';
+        //the initial json request to flickr
+        //to get your latest public photos, use this request: http://api.flickr.com/services/rest/?&method=flickr.people.getPublicPhotos&api_key=' + apiKey + '&user_id=29096781@N02&per_page=15&page=2&format=json&jsoncallback=?
+        $.getJSON('http://api.flickr.com/services/rest/?&method=flickr.photosets.getPhotos&api_key=' + apiKey + '&photoset_id=72157619415192530&format=json&jsoncallback=?',
+        function(data){
+        //loop through the results with the following function
+        $.each(data.photoset.photo, function(i,item){
+        //build the url of the photo in order to link to it
+        var photoURL = 'http://farm' + item.farm + '.static.flickr.com/' + item.server + '/' + item.id + '_' + item.secret + '_m.jpg';
+        //turn the photo id into a variable
+        var photoID = item.id;
+        //use another ajax request to get the geo location data for the image
+        $.getJSON('http://api.flickr.com/services/rest/?&method=flickr.photos.geo.getLocation&api_key=' + apiKey + '&photo_id=' + photoID + '&format=json&jsoncallback=?',
+        function(data){
+        //if the image has a location, build an html snippet containing the data
+        if(data.stat != 'fail') {
+        pLocation = '<a target="_blank" href="http://www.flickr.com/map?fLat=' + data.photo.location.latitude + '&fLon=' + data.photo.location.longitude + '&zl=1">' + data.photo.location.locality._content + ', ' + data.photo.location.region._content + ' (Click for Map)</a>';
+        }
+        });
+        //use another ajax request to get the tags of the image
+        $.getJSON('http://api.flickr.com/services/rest/?&method=flickr.photos.getInfo&api_key=' + apiKey + '&photo_id=' + photoID + '&format=json&jsoncallback=?',
+        function(data){
+        //if the image has tags
+        if(data.photo.tags.tag != '') {
+        //create an empty array to contain all the tags
+        var tagsArr = new Array();
+        //for each tag, run this function
+        $.each(data.photo.tags.tag, function(j, item){
+        //push each tag into the empty 'tagsArr' created above
+        tagsArr.push('<a href="http://www.flickr.com/photos/tags/' + item._content + '">' + item.raw + '</a>');
+        });
+        //turn the tags array into a string variable
+        var tags = tagsArr.join(', ');
+        }
+        //create an imgCont string variable which will hold all the link location, title, author link, and author name into a text string
+        var imgCont = '<div class="image-container" style="background: url(' + photoURL + ');"><div class="image-info"><p class="top"><a class="title" href="http://www.flickr.com/photos/' + data.photo.owner.nsid + '/' + photoID + '">' + data.photo.title._content + '</a> <span class="author">by <a href="http://flickr.com/photos/' + data.photo.owner.nsid + '">' + data.photo.owner.username + '</a></span></p><div class="bottom"><p><span class="infoTitle">Comments:</span> ' + data.photo.comments._content + '</p>';
+        //if there are tags associated with the image
+        if (typeof(tags) != 'undefined') {
+        //combine the tags with an html snippet and add them to the end of the 'imgCont' variable
+        imgCont += '<p><span class="infoTitle">Tags:</span> ' + tags + '</p>';
+        }
+        //if the image has geo location information associate with it
+        if(typeof(pLocation) != 'undefined'){
+        //combine the geo location data into an html snippet and at that to the end fo the 'imgCont' variable
+        imgCont += '<p><span class="infoTitle">Location:</span> ' + pLocation + '</p>';
+        }
+        //add the description & html snippet to the end of the 'imgCont' variable
+        imgCont += '<p><span class="infoTitle">Decription:</span> ' + data.photo.description._content + '</p></div></div>';
+        //append the 'imgCont' variable to the document
+        $(imgCont).appendTo('#image-container');
+        //delete the pLocation global variable so that it does not repeat
+        delete pLocation;
+        });
+        });
+        });
+        //assign hover actions to each image
+        $('.image-container').live('mouseover', function(){
+        $(this).children('div').attr('class', 'image-info-active');
+        });
+        $('.image-container').live('mouseout', function(){
+        $(this).children('div').attr('class', 'image-info');
+        });
+        jQuery('#loader').remove();
+        }); 
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.0.min.js"><\/script>')</script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/start.js"></script>
+        <script src="js/flickr-json-response.js"></script>
+        <script src="js/build-html.js"></script>
+        <script src="js/get-flickr-tags.js"></script>
+        <script src="js/create-html.js"></script>
+        <script src="js/hover-affects.js"></script>
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)}(document,'script'));
+        </script>
+    </body>
+</html>
