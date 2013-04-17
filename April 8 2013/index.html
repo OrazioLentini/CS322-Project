@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/jquery.mobile-1.0.1.min.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-    
     <script type="text/template" id="home">
 
         <div data-role="header">
@@ -19,10 +18,10 @@
 	    <h2>Choose Model</h2>
             <p>Choose the camera model that you want to see pictures take with the camera.</p>
             
+            <input id="searchphoto" type="search" name="searchphoto" placeholder="Brand Model"/>
+            <button id="searchButton">Search</button>
+            
             <div data-role="controlgroup">
-                <form method="post" action="#" id='queryForm' name="queryForm" onsubmit="return false">
-                    <input id="searchbox" type="search" name="searchbox" placeholder="Brand Model"/>
-                </form>
                 <ul data-role="listview"  data-inset="true">
                     <li><a href="#canon" id="canoni" data-role="button" data-icon="custom">Canon</a></li>
                     <li><a href="#nikon" id="nikoni" data-role="button" data-icon="custom">Nikon</a></li>
@@ -31,7 +30,7 @@
                 </ul>
             </div><!--Control Group-->
         </div><!--home-->
-
+        
     </script><!--Home-->
 
     <script type="text/template" id="canon">
@@ -180,7 +179,9 @@
             <h1>Results</h1>
         </div>
         
-    </script><!--Results-->
+        <div id="result" data-role="content"></div>
+        
+    </script><!--Results-->   
     
     <!-- The Scripts -->
     <script src="lib/jquery-1.7.1.min.js"></script>
@@ -189,8 +190,10 @@
     <script src="lib/underscore-min.js"></script>
     <script src="lib/backbone-min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/photo.js"></script>
 </head>
 
-<body></body>
+<body>
+</body>
 
 </html>

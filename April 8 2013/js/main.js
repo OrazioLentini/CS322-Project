@@ -1,4 +1,4 @@
-//     VIEW
+ //     VIEW
 //=========
 window.HomeView = Backbone.View.extend({
 
@@ -63,7 +63,7 @@ window.Page5View = Backbone.View.extend({
 window.Page6View = Backbone.View.extend({
     
     template:_.template($('#results').html()),
-
+    
     render:function (eventName) {
         $(this.el).html(this.template());
         return this;
