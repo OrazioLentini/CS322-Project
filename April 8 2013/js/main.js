@@ -1,4 +1,58 @@
- //     VIEW
+/*var apiKey = "cbb61449315fa2eb1cd8cda781f00b40";
+
+$(document).ready(function(){
+  $("#searchButton").click(function(){
+    s = $("input#searchphoto").val();
+    //alert(s);
+    $.ajax({
+      url: "http://api.flickr.com/services/rest/?",
+      data: {
+        api_key: apiKey,
+        format: 'json',
+        method: "flickr.photos.search",
+        tags: s,
+        per_page: 30
+        },
+      // dataType: "jsonp",
+      //jsonp: "jsoncallback",
+    });
+  });
+}); 
+
+function jsonFlickrApi(rsp) {
+window.rsp = rsp;
+ var s = "";
+  //http://farm{id}.static.flickr.com/{server-id}/{id}_{secret}_[mstb].jpg
+  // http://www.flickr.com/photos/{user-id}/{photo-id}
+  //s = rsp.photos.photo.length;
+  
+  for (var i=0; i < rsp.photos.photo.length; i++) {
+    photo = rsp.photos.photo[i];
+    t_url = "http://farm" + photo.farm + ".static.flickr.com/" + 
+      photo.server + "/" + photo.id + "_" + photo.secret + "_" + "q.jpg";
+    p_url = "http://www.flickr.com/photos/" + photo.owner + "/" + photo.id;
+    s +=  '<a href="' + p_url + '">' + '<img alt="'+ photo.title + 
+      '"src="' + t_url + '"/>' + '</a>';
+  }
+  document.writeln(s);
+  $('#results').html(t_url + "</ul>");
+}
+
+var oraz = Backbone.Model.extend({
+    defaults: {
+       photo:  'photo'
+       t_url: 't'
+       p_url: 'p'
+       s: 's'
+    },
+    initialize: function (){
+        
+    }
+}),
+*/
+
+
+//     VIEW
 //=========
 window.HomeView = Backbone.View.extend({
 
@@ -61,7 +115,7 @@ window.Page5View = Backbone.View.extend({
 });
 
 window.Page6View = Backbone.View.extend({
-    
+  
     template:_.template($('#results').html()),
     
     render:function (eventName) {

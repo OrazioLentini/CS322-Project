@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/jquery.mobile-1.0.1.min.css"/>
     <link rel="stylesheet" href="css/main.css"/>
+    
     <script type="text/template" id="home">
 
         <div data-role="header">
@@ -15,11 +16,20 @@
         
         <div data-role="content" id="h">
             <div id="image"><img src="images/oraz.png" class="stretch" alt="Oraz"/></div>
-	    <h2>Choose Model</h2>
+	    <p>Choose Model</p>
             <p>Choose the camera model that you want to see pictures take with the camera.</p>
             
-            <input id="searchphoto" type="search" name="searchphoto" placeholder="Brand Model"/>
-            <button id="searchButton">Search</button>
+            <div id="sb">
+                <input id="searchphoto" type="search" name="searchphoto" placeholder="Brand Model"/>
+                <button id="searchButton">Search</button>
+            </div>
+            
+            
+            <div data-role-"content" data-theme="a" id="p">
+			<div class="ui-grid-c" id="photolist">
+			</div><!--grid-->
+	    </div><!--content-->
+            
             
             <div data-role="controlgroup">
                 <ul data-role="listview"  data-inset="true">
@@ -179,7 +189,10 @@
             <h1>Results</h1>
         </div>
         
-        <div id="result" data-role="content"></div>
+        <div id="result" data-role="content">
+            <ul data-role="listview">
+            </ul>
+        </div>
         
     </script><!--Results-->   
     
@@ -190,7 +203,7 @@
     <script src="lib/underscore-min.js"></script>
     <script src="lib/backbone-min.js"></script>
     <script src="js/main.js"></script>
-    <script src="js/photo.js"></script>
+    <script src="js/photo.js"></script> 
 </head>
 
 <body>

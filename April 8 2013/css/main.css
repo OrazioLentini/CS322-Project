@@ -8,6 +8,7 @@ h2 {
 }
 
 p {
+    margin-top: 25px;
     text-align: center;
     font-size: 10px;
 }
@@ -17,6 +18,12 @@ p {
 	height: 200px;
 	float: left;
 	border: dashed 3px blue;
+}
+#sb {
+    width: 100%;
+    max-width: 90%;
+    margin: 5%;
+    
 }
 .stretch {
 	width: 100%;
@@ -44,6 +51,20 @@ img {
     max-width: 75%;
 }
 
+#photolist img {
+	width: 150px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-border-radius: 10px;
+}
+
+#photolist.ui-grid-c {
+	width: 100%;
+        max-height: 90%;
+	padding: 0;
+	margin: 0;
+        
+}
 .nav-glyphish-example .ui-btn .ui-btn-inner { padding-top: 40px !important; }
 .nav-glyphish-example .ui-btn .ui-icon { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important;
 -webkit-box-shadow: none!important; -webkit-border-radius: none !important; border-radius: none !important; }
