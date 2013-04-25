@@ -23,18 +23,16 @@ function getModels(str){
           var model = camera.id;
           var image = camera.images.small;
           //var cameraImage="js/bypass.php?image_src="+image;
-          console.log(image);
-          s = brand + " " + model;
-          //alert(s);
-          $("#cameraModels ul").append("<li><a onclick='getPhotos(s)' href=#results><img class='ui-li-icon' src='"+image+"'>"+brand+"  "+model+"</a></li>");
+          $("#cameraModels ul").append("<li><a onclick=getPhotos('"+model+"') href=#results><img class='ui-li-icon' src='"+image+"'>"+brand+" "+model+"</a></li>");
           $("#cameraModels ul").listview('refresh');  
       }
     }
   });
 }
 
-function getPhotos(s){
-  //s = str;
+function getPhotos(model){
+  s = model;
+  //alert(model);
   $.ajax({
       url: "http://api.flickr.com/services/rest/?",
       data: {
@@ -50,6 +48,7 @@ function getPhotos(s){
         window.rsp = rsp;
         console.log(rsp);
         var output='';
+        var head='';
         for (var i=0; i<rsp.photos.photo.length; i++) {
           photo = rsp.photos.photo[i];
           var title = "http://farm" + photo.farm + ".static.flickr.com/" + photo.server + "/" + photo.id + "_" + photo.secret + "_" + "q.jpg";
