@@ -8,12 +8,18 @@
     <link rel="stylesheet" href="css/main.css"/>
     
     <script type="text/template" id="home">
+      
+	<div data-role="header">
+            <h1>ORAZ</h1>
+            <a href="#about" class="ui-btn-right" data-icon="info" data-iconpos="notext" data-rel="dialog">About</a>
+        </div><!--Header Home-->
+        
         <div data-role="content" id="h">
 	    <p>Choose Model</p>
             <p>Choose the camera model that you want to see pictures take with the camera.</p>
        
           <div id="sb">
-                <input id="searchphoto" type="search" name="searchphoto" placeholder="Camera Brand ..."/>
+                <input id="searchphoto" type="search" onsearch="getModels(this.value)" onblur="getModels(this.value)" name="searchphoto" placeholder="Camera Brand ..."/>
                 <button id="searchButton">Search</button>
             </div>
 	  <div id="cameraModels" data-role="content">
@@ -22,6 +28,14 @@
 	  </div>
         </div><!--home-->
         
+	<div data-role="footer" data-position="fixed">
+	    <div data-role="navbar">
+		<ul>
+		    <li><a href="#" data-role="button" data-icon="home">Home</a></li>
+                    <li><a href="#favs" data-role="button" data-icon="star">Favorites</a></li>
+		</ul>
+	    </div><!--Navbar-->
+	</div><!--Footer-->
     </script><!--Home-->
 
     
@@ -42,7 +56,7 @@
 	    </div><!--Navbar-->
 	</div><!--Footer-->
 	
-    </script><!--sony-->
+    </script>
     
     <script type="text/template" id="about">
         
@@ -66,10 +80,10 @@
             <h1>Results</h1>
         </div>
         
-        <div id="result" data-role="content">
-            <ul data-role="listview">
-            </ul>
-        </div>
+        <div data-role-"content">
+          <div class="ui-grid-c" id="photolist">
+          </div>
+	</div>    
         
     </script><!--Results-->   
     
