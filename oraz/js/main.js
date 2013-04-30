@@ -10,7 +10,7 @@ window.HomeView = Backbone.View.extend({
     }
 });
 
-window.Page4View = Backbone.View.extend({
+window.Page2View = Backbone.View.extend({
 
     template:_.template($('#about').html()),
 
@@ -20,7 +20,7 @@ window.Page4View = Backbone.View.extend({
     }
 });
 
-window.Page5View = Backbone.View.extend({
+window.Page3View = Backbone.View.extend({
 
     template:_.template($('#favs').html()),
 
@@ -30,7 +30,7 @@ window.Page5View = Backbone.View.extend({
     }
 });
 
-window.Page6View = Backbone.View.extend({
+window.Page4View = Backbone.View.extend({
   
     template:_.template($('#results').html()),
     
@@ -66,17 +66,17 @@ var AppRouter = Backbone.Router.extend({
     },
     about:function () {
         console.log('#about');
-        this.changePage(new Page4View());
+        this.changePage(new Page2View());
     },
     
     favs:function () {
         console.log('#favs');
-        this.changePage(new Page5View());
+        this.changePage(new Page3View());
     },
     
     results:function () {
         console.log('#results');
-        this.changePage(new Page6View());
+        this.changePage(new Page4View());
     },
 
     changePage:function (page) {
@@ -89,7 +89,7 @@ var AppRouter = Backbone.Router.extend({
             transition = 'none';
             this.firstPage = false;
         }
-        $.mobile.changePage($(page.el), {changeHash:false, transition: transition});
+        $.mobile.changePage($(page.el), {changeHash:false, transition: 'fade'});
     }
 
 });
