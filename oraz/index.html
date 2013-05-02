@@ -9,31 +9,34 @@
     
     <script type="text/template" id="home">
       
-	<div data-role="header">
+	<div data-role="header" data-position="fixed">
             <h1>ORAZ</h1>
-            <a href="#about" class="ui-btn-right" data-icon="info" data-iconpos="notext" data-rel="dialog">About</a>
         </div><!--Header Home-->
         
         <div data-role="content" id="h">
-	    <p>Choose Model</p>
-            <p>Choose the camera model that you want to see pictures take with the camera.</p>
+	  <p>Choose Model</p>
+          <p>Choose the camera model that you want to see pictures take with the camera.</p>
        
           <div id="sb">
                 <input id="searchphoto" type="search" onsearch="getModels(this.value)" onblur="getModels(this.value)" name="searchphoto" placeholder="Camera Brand ..."/>
                 <button id="searchButton">Search</button>
-            </div>
+          </div>
+	    
 	  <div id="cameraModels" data-role="content">
 	    <ul data-role="listview">
 	    </ul>
 	  </div>
-        </div><!--home-->
+          
+        </div>
         
-	<div data-role="footer" data-position="fixed">
+	<div data-role="footer" data-position="fixed" data-iconpos="right">
 	    <div data-role="navbar">
 		<ul>
 		    <li><a href="#" data-role="button" data-icon="home">Home</a></li>
-                    <li><a href="#favs" data-role="button" data-icon="star">Favorites</a></li>
-		</ul>
+                    <li><a href="#favs" onclick="loadFavs()" data-role="button" data-icon="star">Favorites</a></li>
+                    <li><a href="#about" data-icon="info" data-role="notext" >About</a></li>
+
+                </ul>
 	    </div><!--Navbar-->
 	</div><!--Footer-->
     </script><!--Home-->
@@ -42,16 +45,22 @@
     <script type="text/template" id="favs">
 
         <div data-role="header" data-position="fixed">
-            <a href="#" data-icon="back" class="back ui-btn-left" data-iconpos="notext">Back</a>
+            <a  data-icon="refresh" data-iconpos="right" onclick="loadFavs()">Update List</a>
             <h1>Favorites</h1>
-            <a href="#about" data-icon="info" data-iconpos="notext" data-rel="dialog">About</a>
+            <a  data-icon="alert" data-iconpos="left" onclick="clearFavs()">Clear</a>
         </div>
 
+        <div id="fav" data-role="content" type="checkbox">
+	    <ul data-role="listview">
+	    </ul>
+	</div>
+   
          <div data-role="footer" data-position="fixed">
 	    <div data-role="navbar">
 		<ul>
-		    <li><a href="#" data-role="button" data-icon="">Home</a></li>
-                    <li><a href="#favs" data-role="button" data-icon="">Favorites</a></li>
+		    <li><a href="#" data-role="button" data-icon="home">Home</a></li>
+                    <li><a href="#favs" data-role="button" data-icon="star">Favorites</a></li>
+                    <li><a href="#about" data-icon="info" data-role="notext" >About</a></li>
                 </ul>
 	    </div><!--Navbar-->
 	</div><!--Footer-->
@@ -60,8 +69,7 @@
     
     <script type="text/template" id="about">
         
-        <div data-role="header">
-            <a href="#" data-icon="delete" class="back ui-btn-right" data-iconpos="notext">Close</a>
+        <div data-role="header" data-position="fixed">
             <h1>About ORAZ</h1>
         </div>
         
@@ -71,21 +79,32 @@
             </p>                
         </div>
         
+         <div data-role="footer" data-position="fixed">
+	    <div data-role="navbar">
+		<ul>
+		    <li><a href="#" data-role="button" data-icon="home">Home</a></li>
+                    <li><a href="#favs" data-role="button" data-icon="star">Favorites</a></li>
+                    <li><a href="#about" data-icon="info" data-role="button" >About</a></li>
+                </ul>
+	    </div><!--Navbar-->
+	</div><!--Footer-->
     </script><!--Info-->
     
     <script type="text/template" id="results">
         
-        <div data-role="header">
+        <div data-role="header" data-position="fixed">
+	    <a onclick="addFavs()" data-role="button" data-icon="star">Fav</a>
             <a href="#" data-icon="delete" class="back ui-btn-right" data-iconpos="notext">Close</a>
-            <h1>Results</h1>
+            <h1>Images</h1>
         </div>
-        
+       
         <div data-role-"content">
           <div class="ui-grid-c" id="photolist">
           </div>
-	</div>    
+	</div>
         
-    </script><!--Results-->   
+    </script><!--Results-->
+    
     
     <!-- The Scripts -->
     <script src="lib/jquery-1.7.1.min.js"></script>
