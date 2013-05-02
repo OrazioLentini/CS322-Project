@@ -24,7 +24,7 @@ function getModels(str){
           var image = camera.images.small;
           //var cameraImage="js/bypass.php?image_src="+image;
           //$("#cameraModels ul").append("<li><a onclick=getPhotos('"+model+"') href=#results><img class='ui-li-icon' src='"+cameraImage+"'>"+brand+" "+model+"</a></li>");
-	  $("#cameraModels ul").append("<li><a onclick=getPhotos('"+ brand +"_" +model+"') href=#results>"+brand+" "+model+"</a></li>");
+	  $("#cameraModels ul").append("<li><a onclick=getPhotos('"+ brand + "_" +model+"') href=#results>"+brand+" "+model+"</a></li>");
           $("#cameraModels ul").listview('refresh');  
       }
     }
@@ -51,6 +51,7 @@ function getPhotos(model){
         console.log(rsp);
         var output='';
         var head='';
+	output += '<div data-role="header"><h1><center>'+s+'</center></h1></div>';
         for (var i=0; i<rsp.photos.photo.length; i++) {
           photo = rsp.photos.photo[i];
           var title = "http://farm" + photo.farm + ".static.flickr.com/" + photo.server + "/" + photo.id + "_" + photo.secret + "_" + "z.jpg";
@@ -71,6 +72,7 @@ function getPhotos(model){
       }
     });
 }
+
 function saveModel(s){
 	console.log(s);
 	sessionStorage.setItem('favModel', s);	
@@ -87,7 +89,6 @@ function addFavs(){
   //console.log(JSON.parse(localStorage.getItem("key")));
 }
 
-
 function loadFavs() {
   console.log(JSON.parse(localStorage.getItem("key")));
   var array = JSON.parse(localStorage.getItem("key"));
@@ -99,6 +100,10 @@ function loadFavs() {
     $("#fav ul").append("<li><a onclick=getPhotos('"+favCam+"') href=#results>"+favCam+"</a></li>");
     $("#fav ul").listview('refresh');  
   }
+}
 
+function clearFavs(){
+  localStorage.clear();
+  location.reload();
 }
 
