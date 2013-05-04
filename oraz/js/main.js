@@ -90,6 +90,8 @@ var AppRouter = Backbone.Router.extend({
             this.firstPage = false;
         }
         $.mobile.changePage($(page.el), {changeHash:false, transition: 'fade'});
+    	//$.mobile.changePage($(results), {changeHash:false, transition: 'fade', role: 'dialog'});
+		//$.mobile.changePage('#results', {transition: 'pop', role: 'dialog'});
     }
 
 });
