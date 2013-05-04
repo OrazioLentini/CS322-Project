@@ -80,7 +80,7 @@ function saveModel(s){
 
 function addFavs(){
   favM = sessionStorage.getItem("favModel");
-  alert('Added to Favorites.');
+  alert('Added to Favorites.'); 
 
   var favModels = JSON.parse(localStorage.getItem("key")) || [];
   favModels.push(favM);
