@@ -1,0 +1,31 @@
+njit
+exam 1: 
+3.
+native
+REsposnive: adapts to device
+web application: displays dynamically generagted in java script
+three html 5: locastorage, online/offline, geo locacation, audio video
+Pros and cons of native:
+1. standard UI
+2. perfomance: infinityblade game
+same as web
+Cons:
+costs: programming specialist
+Costs: can't use for android to ios or/ ios to android
+OS updates: ownership of the code
+
+Temperature sensor, figure print : can't access through web application
+
+Hybrid application for phonegap: html css javascript titanium
+One code base, use on both types of devices. slightly different
+
+Simmulator
+
+Mobile web app:
+pro:
+One application for everyone
+informational service: app is available to customer - not losing customers
+Con:
+
+web services 
+REST and SOAP
