@@ -49,6 +49,15 @@ window.Page5View = Backbone.View.extend({
         return this;
     }
 });
+window.Page6View = Backbone.View.extend({
+  
+    template:_.template($('#cameraList').html()),
+    
+    render:function (eventName) {
+        $(this.el).html(this.template());
+        return this;
+    }
+});
 
 //   ROUTER
 //=========
@@ -59,7 +68,8 @@ var AppRouter = Backbone.Router.extend({
         "about":"about",
         "favs":"favs",
         "results":"results",
-        "favResults":"favResults"
+        "favResults":"favResults",
+        "cameraList":"cameraList"
     },
 
     initialize:function () {
@@ -94,7 +104,10 @@ var AppRouter = Backbone.Router.extend({
         console.log('#favResults');
         this.changePage(new Page5View());
     },
-
+    cameraList:function () {
+        console.log('#cameraList');
+        this.changePage(new Page6View());
+    },
     changePage:function (page) {
         $(page.el).attr('data-role', 'page');
         page.render();

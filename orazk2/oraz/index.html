@@ -1,17 +1,51 @@
 <!DOCTYPE html>
-<html class="ui-mobile-rendering">
-<head>
+    <html class="ui-mobile-rendering">
+    <head>
     <title></title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/jquery.mobile-1.0.1.min.css"/>
     <link rel="stylesheet" href="css/main.css"/>
     
+    
+    <!-------------------------------------------home-------------------------->
+        <script type="text/template" id="home">
+        
+        <div data-role="header">
+            <h1>oraz</h1>
+        </div>
+        <div data-role="content" id="h">
+            <h1 id = "logo">Oraz</h1>
+            <input type="search" name="search" id="pictureInput" value="" placeholder="Search Camera or Pictures..."/>
+            
+           <div id=searchbuttons data-role="controlgroup" data-type="horizontal">
+	        <a href="#cameraList" input type="button"  data-inline = "true" value="Search Pictures" onclick="getCameraModels()"> Search Camera </a>
+	        <a href="#results" input type="button"  data-inline = "true" value="Search Pictures" onclick="getPictures()"> Search Pictures </a>
+	    </div>
+       </div><!--Content-->
+          
+        </div>
+            
+        </div>
+	
+	<div data-role="footer" data-position="fixed">
+	    <div data-role="navbar">
+		<ul>
+		    <li><a href="#" data-role="button" data-icon="home">Home</a></li>
+                    <li><a href="#favs" data-role="button" data-icon="star">Favorites</a></li>
+                    <li><a href="#about" data-icon="info" data-role="notext" >About</a></li>
+                </ul>
+	    </div><!--Navbar-->
+	</div><!--Footer-->
+	
+
+    </script>
+    <!--
     <script type="text/template" id="home">
       
 	<div data-role="header" data-position="fixed">
             <h1>ORAZ</h1>
-        </div><!--Header Home-->
+        </div><!--Header Home
         
         <div data-role="content" id="h">
 	  <h1>Choose Camera Brand</h1>
@@ -37,17 +71,40 @@
                     <li><a href="#about" data-icon="info" data-role="notext" >About</a></li>
 
                 </ul>
+	    </div><!--Navbar
+	</div><!--Footer
+    </script><!--Home-->
+    <!-------------------------------------------cameraList-------------------------->
+        <script type="text/template" id="cameraList">
+
+        <div data-role="header" data-position="fixed">
+        
+            <h1>Camera List</h1>
+       <a href="#"  data-icon="home" class="back ui-btn-left" data-iconpos="notext">home</a>
+        </div>
+	<div id="cameraModels" data-role="content">
+		  <ul data-role="listview">
+		  </ul>
+	</div>
+   
+         <div data-role="footer" data-position="fixed">
+	    <div data-role="navbar">
+		<ul>
+		    <li><a href="#" data-role="button" data-icon="home" data-transition="flip">Home</a></li>
+                    <li><a href="#favs" data-role="button" data-icon="star">Favorites</a></li>
+                    <li><a href="#about" data-icon="info" data-role="notext" >About</a></li>
+                </ul>
 	    </div><!--Navbar-->
 	</div><!--Footer-->
-    </script><!--Home-->
-
-    
+	
+    </script>
+	<!-------------------------------------------favorites-------------------------->
     <script type="text/template" id="favs">
 
         <div data-role="header" data-position="fixed">
             <a  data-icon="refresh" data-iconpos="right" onclick="loadFavs()">Update List</a>
             <h1>Favorites</h1>
-            <a  data-icon="alert" data-iconpos="left" onclick="clearFavs()">Clear</a>
+            <a href="#" onclick="reloadModels()" data-icon="back" class="back ui-btn-right" data-iconpos="notext">Close</a>
         </div>
 
 
@@ -67,6 +124,8 @@
 	</div><!--Footer-->
 	
     </script>
+    
+    <!-------------------------------------------about-------------------------->
     
     <script type="text/template" id="about">
         
@@ -95,7 +154,7 @@
         
         <div data-role="header" data-position="fixed">
 	    <a onclick="addFavs()" data-role="button" data-icon="star">Fav</a>
-            <a href="#" onclick="reloadModels()" data-icon="back" class="back ui-btn-right" data-iconpos="notext">Close</a>
+            <a href="#cameraList" onclick="reloadModels()" data-icon="back" class="back ui-btn-right" data-iconpos="notext">Close</a>
             <h1>Images</h1>
         </div>
        
@@ -107,6 +166,7 @@
 	    <div data-role="navbar">
 		<ul>
 		    <li><a href="#" data-role="button" data-icon="home">Home</a></li>
+		    <li><a href="#cameraList" onclick="reloadModels()" data-role="button" data-icon="grid">Camera List</a></li>
                     <li><a href="#favs" onclick="loadFavs()" data-role="button" data-icon="star">Favorites</a></li>
                     <li><a href="#about" data-icon="info" data-role="notext" >About</a></li>
 
@@ -115,6 +175,8 @@
 	</div><!--Footer-->
         
     </script><!--Results-->
+    
+    <!-------------------------------------------favorites Results-------------------------->
     
     <script type="text/template" id="favResults">
         
@@ -132,6 +194,7 @@
 	    <div data-role="navbar">
 		<ul>
 		    <li><a href="#" data-role="button" data-icon="home">Home</a></li>
+		    
                     <li><a href="#favs" onclick="loadFavs()" data-role="button" data-icon="star">Favorites</a></li>
                     <li><a href="#about" data-icon="info" data-role="notext" >About</a></li>
 

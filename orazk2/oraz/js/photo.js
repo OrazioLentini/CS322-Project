@@ -1,5 +1,10 @@
 var apiKey = "cbb61449315fa2eb1cd8cda781f00b40";
-
+function getCameraModels() {
+    getModels(document.getElementById("pictureInput").value);
+}
+function getPictures() {
+    getPhotos(document.getElementById("pictureInput").value);
+}
 function getModels(str){
   s = str;
   saveBrand(s);
@@ -11,22 +16,29 @@ function getModels(str){
       format: 'json',
       method: "flickr.cameras.getBrandModels",
       brand: s,
-    },
+      },
     dataType: 'jsonp',
     jsonp: 'jsoncallback',
     success: function(rsp){
       window.rsp = rsp;
       console.log(rsp);
-      $("#cameraModels ul").empty();
-      for (var i=0; i<15; i++) {
-          camera = rsp.cameras.camera[i];
-          var brand = rsp.cameras.brand;
-          var model = camera.id;
-          var image = camera.images.small;
-          //var cameraImage="js/bypass.php?image_src="+image;
-          //$("#cameraModels ul").append("<li><a onclick=getPhotos('"+model+"') href=#results><img class='ui-li-icon' src='"+cameraImage+"'>"+brand+" "+model+"</a></li>");
-	  $("#cameraModels ul").append("<li><a onclick=getPhotos('"+ brand + "_" +model+"') href=#results>"+brand+" "+model+"</a></li>");
-          $("#cameraModels ul").listview('refresh');  
+      if(rsp.cameras != null){
+	$("#cameraModels ul").empty();
+	for (var i=0; i<25; i++) {
+	    camera = rsp.cameras.camera[i];
+	    var brand = rsp.cameras.brand;
+	    var model = camera.id;
+	    var image = camera.images.small;
+	    //var cameraImage="js/bypass.php?image_src="+image;
+	    //$("#cameraModels ul").append("<li><a onclick=getPhotos('"+model+"') href=#results><img class='ui-li-icon' src='"+cameraImage+"'>"+brand+" "+model+"</a></li>");
+	    $("#cameraModels ul").append("<li><a onclick=getPhotos('"+ brand + "_" +model+"') href=#results>"+brand+" "+model+"</a></li>");
+	    $("#cameraModels ul").listview('refresh');  
+	}
+     }
+      else{
+	alert("Brand not found");
+	$("#").html;
+	
       }
     }
   });
