@@ -20,8 +20,7 @@
           <div id="sb">
                 <input id="searchphoto" type="search" onsearch="getModels(this.value)" onblur="getModels(this.value)" name="searchphoto" placeholder="Camera Brand ..."/>
                 <button id="searchButton">Search</button>
-          </div>
-	    
+          </div> 
 	  <div id="cameraModels" data-role="content">
 	    <ul data-role="listview">
 	    </ul>
@@ -94,7 +93,7 @@
         
         <div data-role="header" data-position="fixed">
 	    <a onclick="addFavs()" data-role="button" data-icon="star">Fav</a>
-            <a href="#" data-icon="delete" class="back ui-btn-right" data-iconpos="notext">Close</a>
+            <a href="#" onclick="reloadModels()" data-icon="back" class="back ui-btn-right" data-iconpos="notext">Close</a>
             <h1>Images</h1>
         </div>
        
@@ -104,6 +103,21 @@
 	</div>
         
     </script><!--Results-->
+    
+    <script type="text/template" id="favResults">
+        
+        <div data-role="header" data-position="fixed">
+	    <a onclick="removeFavs()" data-role="button" data-icon="star">Unfav</a>
+            <a href="#" onclick="loadFavs()" data-icon="back" class="back ui-btn-right" data-iconpos="notext">Close</a>
+            <h1>Images</h1>
+        </div>
+       
+        <div data-role-"content">
+          <div class="ui-grid-c" id="photolist">
+          </div>
+	</div>
+        
+    </script><!--favResults-->
     
     
     <!-- The Scripts -->
