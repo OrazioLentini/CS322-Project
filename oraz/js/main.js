@@ -40,6 +40,16 @@ window.Page4View = Backbone.View.extend({
     }
 });
 
+window.Page5View = Backbone.View.extend({
+  
+    template:_.template($('#favResults').html()),
+    
+    render:function (eventName) {
+        $(this.el).html(this.template());
+        return this;
+    }
+});
+
 //   ROUTER
 //=========
 var AppRouter = Backbone.Router.extend({
@@ -48,7 +58,8 @@ var AppRouter = Backbone.Router.extend({
         "":"home",
         "about":"about",
         "favs":"favs",
-        "results":"results"
+        "results":"results",
+        "favResults":"favResults"
     },
 
     initialize:function () {
@@ -78,6 +89,11 @@ var AppRouter = Backbone.Router.extend({
         console.log('#results');
         this.changePage(new Page4View());
     },
+    
+     favResults:function () {
+        console.log('#favResults');
+        this.changePage(new Page5View());
+    },
 
     changePage:function (page) {
         $(page.el).attr('data-role', 'page');
@@ -90,7 +106,7 @@ var AppRouter = Backbone.Router.extend({
             this.firstPage = false;
         }
         $.mobile.changePage($(page.el), {changeHash:false, transition: 'fade'});
-    	//$.mobile.changePage($(results), {changeHash:false, transition: 'fade', role: 'dialog'});
+		//$.mobile.changePage($(results), {changeHash:false, transition: 'fade', role: 'dialog'});
 		//$.mobile.changePage('#results', {transition: 'pop', role: 'dialog'});
     }
 
